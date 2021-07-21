@@ -1,0 +1,17 @@
+* Kodriver
+** På Vejen
+https://github.com/egandro/docker-qemu-arm
+Docker er ikke nødvendig til k3s, men er en afhængighed til k3d.
+Jeg er dog ikke lykkedes endnu, men at få k3d tik at køre.
+k3s køre fint i qemu-x86 på android, men kan ikke umiddelbart ikke køre direkte i termux, da den er afhængig af en init system, som eks. [[https://github.com/OpenRC/openrc][openrc]] benyttet i ovenstående vm image.
+** afhængigheder
+#+begin_src shell
+apk --no-cache add curl wget
+#+end_src
+Installer k3s
+#+begin_src shell
+curl -sfL https://get.k3s.io | sh -
+#+end_src
+#+begin_src shell
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+#+end_src
